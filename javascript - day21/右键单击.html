@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+    
+        </style>
+    </head>
+    <body>
+    <script>
+    var oBody = document.querySelector('body');
+    
+         document.addEventListener('contextmenu',function(e){
+              e.preventDefault();
+              if(document.getElementsByTagName('div')[0]){
+                var oDiv = document.getElementsByTagName('div')[0];
+                oBody.removeChild(oDiv)
+              }
+                var oDiv = document.createElement('div');
+                oBody.appendChild(oDiv)
+                oDiv.style.cssText='position:absolute;width:100px;height:100px;background:red;border:3px solid yellow;left:'+e.clientX+'px;top:'+e.clientY+'px;'
+
+         },false)
+         document.addEventListener('click',function(){
+            if(document.getElementsByTagName('div')[0]){
+                var oDiv = document.getElementsByTagName('div')[0];
+                oBody.removeChild(oDiv)
+              }
+         },false)
+    </script>
+    </body>
+</html>

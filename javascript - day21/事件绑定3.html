@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+            // 事件兼听兼容处理,兼容IE
+            function myAddEvent(element,type,callback){
+                if(element.addEventListener){
+                    element.addEventListener(type,callback,false);
+                }else if(element.attachEvent){
+                    element.attachEvent('on' + type,callback)
+                }
+            } 
+
+
+            function removeEvent(element,type,callback){
+                if(element.removeEventListener){
+                    element.removeEventListener(type,callback,false);
+                }else if(element.detachEvent){
+                    element.detachEvent('on' + type,callback)
+                }
+            }
+            
+
+            // window.addEventListener("load",function(){
+            //      var oBtn = document.getElementById('btn');
+            //      oBtn.addEventListener("click",function(){
+            //          alert(this.innerHTML+"1")
+            //      })
+            //      oBtn.onclick=function(){
+            //         alert(this.innerHTML+"2")
+            //      }
+            // },false)
+    
+            // myAddEvent(window,"load",function(){
+            //     var oBtn = document.getElementById('btn');
+            //     myAddEvent(oBtn,'click',aa)
+            //     removeEvent(oBtn,'click',aa)
+            //     myAddEvent(oBtn,'click',aa)
+
+
+            //     function aa(){
+            //        alert(this===window)
+            //     }
+                
+            //  })
+
+         
+           window.attachEvent('onload',function(){
+            var oBtn = document.getElementById('btn');
+            oBtn.attachEvent('onclick',aa)
+
+           })
+
+          
+          function aa(){
+             var _this = window.event.srcElement;
+             _this.className = "aa"
+             _this.detachEvent('onclick',aa)
+             _this.attachEvent('onclick',function(){
+                var _this = window.event.srcElement;
+                _this.className = "bb"
+             })
+             return this
+          }
+
+
+
+            window.attachEvent('onload',function(){
+                var oBtn = document.getElementById('btn');
+                oBtn.attachEvent('onclick',function(){
+                  alert(aa.call(oBtn))
+                })
+            })
+
+            
+            </script>
+</head>
+<body>
+    <div id="btn">周思彤</div>
+</body>
+</html>

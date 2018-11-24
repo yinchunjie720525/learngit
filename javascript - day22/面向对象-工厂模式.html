@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+    ECMAScript有两种 开发模式，第一种函数式【过程化】，面向对象（oop）,
+    基本上所有的面向对象的开发模式。都有一个标志，就是类的概念。可以通过这个类来创建
+    多个具有相同属性和的对象。
+    ES6之前，没有类的概念，也就是说JAVACRIPT它的对象和基于类的语言的对象是不同的。
+</pre>
+<script>
+//    function createObject(name,sex,age){
+//        var obj = new Object();
+//        obj.name = name;
+//        obj.sex = sex;
+//        obj.age = age;
+//        obj.run = function(){
+//         return this.name +","+ this.sex +","+ this.age
+//        };
+//        return obj;
+//    }
+
+//    var ycj = createObject('尹纯洁','女',18);
+//    alert(ycj.run())
+//    var hjk = createObject('何俊克','男',28);
+//    alert(hjk.run())
+//    alert(ycj.run())
+
+    function createObject2(name,age){
+         return {
+             name:name,
+             age:age,
+             run:function(){
+                return "hello" + this.name + "欢迎您回来"
+             }         
+        }
+        // return obj
+    }
+
+    var ycj = createObject2('尹纯洁',18);
+    // alert(ycj.run())
+    var hjk = createObject2('何俊克',18);
+    // alert(hjk.run())
+
+    alert(typeof hjk)
+    // alert(hjk instanceof Object)
+    // alert(ycj instanceof Object)  //对象无法识别  都是object
+    
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+              window.onload=function(){
+                  alert('周思彤')
+              }
+              
+              if(typeof window.onload=='function'){  // 判断在我之前是否有windlow.onload
+                  var saved = null;   //创建一个空的保存容器
+                  saved = window.onload;  //把之前的window.onload 保存起来
+              }
+
+             window.onload=function(){
+                  if(saved) saved()
+                  alert('周思彤2')
+              }  
+
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>

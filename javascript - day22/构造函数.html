@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <pre>
+            ECMAscript当中可以采用构构造函数（构造方法）来创建特定的对象、
+        </pre>
+        <script>
+
+
+
+//    function createObject(name,sex,age){
+//        var obj = new Object();
+//        obj.name = name;
+//        obj.sex = sex;
+//        obj.age = age;
+//        obj.run = function(){
+//         return this.name +","+ this.sex +","+ this.age
+//        };
+//        return obj;
+//    }
+
+
+            function Box(username,age){
+                this.username = username;
+                this.age = age;
+                this.run = function(){
+                    return this.username + "欢迎您回来"
+                }
+            }
+
+            function Box2(username,age){
+                // var obj = new Obect()
+                this.username = username;
+                this.age = age;
+                this.run = function(){
+                    return this.username + "欢迎您回来"
+                }
+                // return obj
+            }
+
+
+            var hjk = new Box('何俊克',18);
+            var gtl = new Box2('古天乐',40);
+            // alert(gtl.run())
+            // alert(hjk instanceof Object)
+            // alert(gtl instanceof Box2)
+
+
+            // 在用构造函数的方法。我们是解决了重复的问题，也解决识别的问题、
+            // 构造函数和工厂模式不同的地方
+            // 1在使用构造函数方法的时候，没有显示创建对象（new Object）
+            // 2直接把属性和方法都给了this这个对象
+            // 3没有return 返回语句
+
+            // 构造函数的规则：
+            // 函数名和实例化构造名相同且必须大写
+            // 通过构造函数创建对象。必须使用new 运算符
+
+            // 通过构造函数可以创建对象，重点在于这个对象是怎么来的，从哪里来的
+            // 在什么地方执行了，执行的过程
+            // 当使用了构造函数，并且new 构造函数  （new Box（）），哪么在浏览器后台执行了 new Object
+            // 把构造函数的作用域给了新对象，也就是new Object创建出来的对象。而函数体内的this也就随之发生变化。代表了。new Object()出来的这个对象
+            // 执行构造函数内的代码
+            // 返回一个新对象（后台直接返回）
+
+            username = '111'
+            alert(this.username)
+        </script>
+    </body>
+</html>

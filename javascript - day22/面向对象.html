@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+    ECMAScript有两种 开发模式，第一种函数式【过程化】，面向对象（oop）,
+    基本上所有的面向对象的开发模式。都有一个标志，就是类的概念。可以通过这个类来创建
+    多个具有相同属性和的对象。
+    ES6之前，没有类的概念，也就是说JAVACRIPT它的对象和基于类的语言的对象是不同的。
+</pre>
+<script>
+    var obj = new Object();   //创建了一个object对象
+    obj.name = "尹纯洁";      //创建一个name属性并赋值
+    obj.sex = "女";           //创建一个sex属性并赋值
+    obj.age = "100";          //创建一个age属性并赋值
+    obj.run = function(){     //创建一个run方法返回值 
+        return this.name +","+ this.sex +","+ this.age
+    }
+
+    var obj2 = new Object();   //创建了一个object对象
+    obj2.name = "何大大";      //创建一个name属性并赋值
+    obj2.sex = "男";           //创建一个sex属性并赋值
+    obj2.age = "100";          //创建一个age属性并赋值
+    obj2.run = function(){     //创建一个run方法返回值 
+        return this.name +","+ this.sex +","+ this.age
+    }
+
+    alert(obj.name)   //输出属性或方法的值
+    // 创建了一个对象，并且创建了这个对象的属性和方法，在方法run()里面的这个this。代表的是对象（obj）本身
+
+    var obj2 = obj;    //得到的是obj的引用
+    obj2.name = "何大大";  //改变了name属性的值
+
+    alert("obj2:"+obj2.run())  
+    alert("obj:"+obj.run())   //因为是引用类型，复制的是一个内存地址，所以name属性一起发生了变化
+
+</script>
+</body>
+</html>
